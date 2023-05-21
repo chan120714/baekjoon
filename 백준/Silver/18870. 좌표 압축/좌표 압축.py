@@ -7,7 +7,7 @@ c.sort()
 for i in range(a):
     mi=0
     ma=len(c)-1
-    md=(mi+ma)//2
+    md=ma//2
     while b[i]!=c[md]:
         if b[i]>c[md]:
             mi=md+1

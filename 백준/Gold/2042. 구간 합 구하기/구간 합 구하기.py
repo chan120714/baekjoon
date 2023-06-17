@@ -1,28 +1,44 @@
 import sys
 input=sys.stdin.readline
+from math import *
 n,m,k=map(int,input().split())
-arr=[0]*(n+1)
-tree=[0]*(n+1)
-def sm(i):
-    res=0
-    while i>0:
-        res+=tree[i]
-        i-=(i&-i)
-    return res
-def update(i,d):
-    while i<=n:
-        tree[i]+=d
-        i+=(i&-i)
-def s_s(n,m):
-    return sm(m)-sm(n-1)
-for i in range(1,1+n):
-    l=int(input())
-    arr[i]=l
-    update(i,l)
-for i in range(m+k):
-    a,b,c=map(int,input().split())
-    if a==1:
-        update(b,c-arr[b])
-        arr[b]=c
+a=[int(input()) for i in range(n)]
+tree=[0]*(1<<ceil(log2(n)+1))
+
+def init(node,start,end):
+    if start==end:
+        tree[node]=a[start]
+        return tree[node]
     else:
-        print(s_s(b,c))
+        mid=(start+end)//2
+        tree[node]=init(node*2,start,mid)+init(node*2+1,mid+1,end)
+        return tree[node]
+
+def update(node,start,end,index,val):
+    if index>end or start>index:
+        return
+    if start==end:
+        tree[node]=val
+        a[index]=val
+        return
+    mid=(start+end)//2
+    update(node*2,start,mid,index,val)
+    update(node*2+1,mid+1,end,index,val)
+    tree[node]=tree[node*2]+tree[node*2+1]
+
+def query(node,start,end,l,r):
+    if start>r or end<l:
+        return 0
+    if start>=l and r>=end:
+        return tree[node]
+    mid=(start+end)//2
+    lsum=query(node*2,start,mid,l,r)
+    rsum=query(node*2+1,mid+1,end,l,r)
+    return lsum+rsum
+init(1,0,n-1)
+for i in range(m+k):
+    q,b,c=map(int,input().split())
+    if q==1:
+        update(1,0,n-1,b-1,c)
+    else:
+        print(query(1,0,n-1,b-1,c-1))

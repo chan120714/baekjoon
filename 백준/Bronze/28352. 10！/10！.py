@@ -1,3 +1,2 @@
 import math
-a=int(input())
-print(math.factorial(a)//(60*60*24*7))
+print(math.factorial(int(input()))//604800)

@@ -1,2 +1,2 @@
 import math
-print(math.factorial(int(input()))//604800)
+print(math.perm(int(input()))//604800)

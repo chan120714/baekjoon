@@ -6,18 +6,17 @@ n=int(input())
 a=[int(input()) for i in range(n)]
 gr=[a[i] for i in range(n)]
 gr.sort()
-tree=[0]*(1<<ceil(log2(n)+1))
+tree=[0]*2000000
 
 def update(node,start,end,index,val):
     if index>end or start>index:
-        return
+        return tree[node]
     if start==end:
         tree[node]=val
-        return
+        return 1
     mid=(start+end)//2
-    update(node*2,start,mid,index,val)
-    update(node*2+1,mid+1,end,index,val)
-    tree[node]=tree[node*2]+tree[node*2+1]
+    tree[node]=update(node*2,start,mid,index,val)+update(node*2+1,mid+1,end,index,val)
+    return tree[node]
 
 def query(node,start,end,l,r):
     if start>r or end<l:

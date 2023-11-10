@@ -1,0 +1,1 @@
+print(sum(list(map(int,(str(bin(int(input()))[2:]))))))

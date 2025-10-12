@@ -1,18 +1,8 @@
-p=10**9+7
-n,m,k=map(int,input().split())
-a=[list(map(int,input().split()))for _ in' '*k]
-a.sort()
-a+=[(n,m)]
-L=n+m
-f=[1]*(L+1)
-for i in range(L):f[i+1]=f[i]*(i+1)%p
-g=[1]*(L+1);g[L]=pow(f[L],-1,p)
-for i in range(L,0,-1):g[i-1]=g[i]*i%p
-C=lambda N,R:f[N]*g[R]%p*g[N-R]%p
-d=[]
-for i,(x,y) in enumerate(a):
- w=C(x+y,x)
- for j,(X,Y) in enumerate(a[:i]):
-  if X<=x and Y<=y:w-=d[j]*C(x-X+y-Y,x-X)
- d+=[w%p]
-print(d[-1])
+P=10**9+7
+N,M,K=map(int,input().split())
+f=[1]
+for i in range(N+M):f.append(f[-1]*-~i%P)
+b=[list(map(int,input().split()))for i in' '*K]
+C=lambda n,k:f[n]*pow(f[k]*f[n-k]%P,-1,P)
+def s(x,y):return C(x+y,x)-sum([C(x-q+y-w,x-q)*s(q,w)for q,w in b if(x>=q and y>=w and(x,y)!=(q,w))])
+print(s(N,M)%P)

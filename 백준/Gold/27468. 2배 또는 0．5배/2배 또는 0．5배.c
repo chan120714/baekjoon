@@ -1,0 +1,1 @@
+x,n;main(){puts("YES");for(scanf("%d",&n);x<n;){printf(" %d","20111201"[n%2*4+x%4]-48+x++);}}

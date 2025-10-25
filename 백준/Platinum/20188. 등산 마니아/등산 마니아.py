@@ -1,5 +1,7 @@
 import sys
 input=sys.stdin.readline
+sys.setrecursionlimit(323456)
+
 
 n=int(input())
 res=-n*(n-1)//2

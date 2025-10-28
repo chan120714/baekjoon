@@ -1,0 +1,1 @@
+int t[1<<18],y=1<<17,x,v[1<<18],i=1;void u(int i,int v){for(;i<=y;i+=i&-i)t[i]+=v;}int q(int r){int k=0;for(;r;r&=r-1)k+=t[r];return k;}main(n,a,b,c){scanf("%d",&n);while(i<=n){scanf("%d",v+i);u(i,v[i]&=1);i++;}scanf("%d",&n);while(n--){scanf("%d%d%d",&a,&b,&c);if(--a)printf("%d ",(-1+(a>1)*2)*(q(c)-q(b-1))+(c-b+1)*(a<2));else{u(b,(c&=1)-v[b]);v[b]=c;}}}

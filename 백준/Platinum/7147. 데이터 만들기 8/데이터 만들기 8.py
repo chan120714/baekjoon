@@ -1,8 +1,3 @@
-print(999,1501)
-ret=0
-for i in range(999):
-    for j in range(i+1,999):
-        if ret==1501:
-            break
-        print(i,j)
-        ret+=1
+print('752 1501\n0 1')
+for j in range(2,752):
+ print(0,j);print(1,j)

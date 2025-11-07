@@ -1,0 +1,6 @@
+#import<bits/stdc++.h>
+using l=long long;
+#define F(a,b,c)for(a=b;a<c;a++)
+#define O cout<<
+#define I cin>>
+using namespace std;string A[2],D;l a,b,c,d,e,f,g,h,k,m[50505],n[27],o,p,q,r,s,u,v,w,y,T,i,j;map<string,int>Q;struct S{l A,B[27],C,D[27],E[27],F[27],G[27],H[27],L,J;string K;}x[1010],z;bool C(S a,S b){return a.A==b.A?a.C==b.C?a.L==b.L?a.J==b.J?a.K<b.K:a.J<b.J:a.L<b.L:a.C<b.C:a.A>b.A;}int X(l i,l j){return A[i][j]*10+A[i][j+1]-528;}void Y(l x){if(f)O x/60<<(x%60<10?":0":":")<<x%60;else O x;}l Z(){tm d={X(1,6),X(1,3),X(1,0),X(0,8),X(0,5)-1,X(0,0)*100+X(0,2)};return(l)mktime(&d);}int main(){I a>>A[0]>>A[1]>>c>>d>>e>>f>>g;b=Z();F(i,0,g){I h>>k>>w;m[h]=--k;n[k]=max(1ll,w);}I p;F(i,1,p+1){I A[0];Q[A[0]]=i;x[i].K=A[0];}I o;F(i,0,o){I q>>r>>D>>s>>h>>u>>A[0]>>A[1];v=Z();if(Q[D]&&s^13&&s^11|!d){z=x[Q[D]];y=m[r];z.J=q;z.E[y]++;if(s==4){z.L=q;u=u?u:e?n[y]:1;if(z.B[y]<u){z.G[y]=(z.E[y]-1)*a;z.H[y]=(v-b)/60;z.D[y]=e&&n[y]-u?2:3;z.F[y]=z.E[y];z.B[y]=u;}}else z.D[y]+=!z.D[y];x[Q[D]]=z;}}F(i,1,p+1){z=x[i];z.A=z.C=T=0;F(j,0,g){T=c?max(T,z.H[j]):T+z.H[j];z.C+=z.G[j];z.A+=z.B[j];}z.C+=T;x[i]=z;}sort(x+1,x+1+p,C);F(i,1,p+1){z=x[i];if(z.A^x[i-1].A||z.C^x[i-1].C)w=i;O w<<','<<z.K;F(j,0,g){O ','<<"0wpa"[z.D[j]]<<'/';if(e&&z.D[j]>1)O z.B[j]<<'/';if(z.D[j]==1)O z.E[j]<<'/';if(z.D[j]>1){O z.F[j]<<'/';Y(z.H[j]+z.G[j]*(c^1));}else O "--";}O ','<<z.A<<'/';Y(z.C);O '\n';x[i]=z;}}

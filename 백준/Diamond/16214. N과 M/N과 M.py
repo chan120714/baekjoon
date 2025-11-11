@@ -1,6 +1,6 @@
 import sys
 input=sys.stdin.readline
-from math import*
+import math
 
 def pow(x,y,p):
     res=1
@@ -15,7 +15,7 @@ def pow(x,y,p):
     
 def phi(n):
     res=n
-    for i in range(2,isqrt(n)+2):
+    for i in range(2,math.isqrt(n)+2):
         if n%i==0:
             res-=(res//i)
             while (n%i==0):
@@ -44,11 +44,9 @@ for _ in range(a):
     n,m=map(int,input().split())
     if m==1:
         print(0)
-        continue
-    if n==1:
-        print(1%m)
-        continue
-    if m==2:
+    elif n==1:
+        print(1)
+    elif m==2:
         print(n%2)
-        continue
-    print(sol(n,m))
+    else:
+        print(sol(n,m))

@@ -2,7 +2,7 @@
 using namespace std;
 typedef long long ll;
 ll x[2000],y[2000],d[2000][2000];
-inline bool f(ll x1,ll x2,ll x3){
+bool f(ll x1,ll x2,ll x3){
     ll s=x1+x2+x3;
     if (x1*2==s || x2*2==s || x3*2==s){return 1;}
     return 0;

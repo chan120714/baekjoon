@@ -1,3 +1,5 @@
+import sys
+input=sys.stdin.readline
 n,*a=map(int,input().split())
 m,*b=map(int,input().split())
 

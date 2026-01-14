@@ -1,4 +1,4 @@
-mod=1000000007
+mod=998244353
 def pow(x,y):
     res=1
     while y>0:

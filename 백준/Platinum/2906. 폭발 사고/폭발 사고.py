@@ -1,12 +1,7 @@
 M=10301
-
-
 n,a,b=map(int,input().split())
-
 dpr=[[[-1]*2 for i in range(n+2)]for i in range(n+2)]
 dpl=[[[-1]*2 for i in range(n+2)]for i in range(n+2)]
-
-
 
 def R(n,a,i):
     v=dpr[n][a][i]
@@ -29,7 +24,6 @@ def L(n,a,i):
     v=dpl[n][a][i]
     if v!=-1:
         return v
-
     ret=0
 
     if i:

@@ -1,0 +1,1 @@
+for i in' '*int(input()):print(int(input())*~-10**9)
